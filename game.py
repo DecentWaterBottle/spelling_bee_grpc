@@ -9,7 +9,7 @@ class Game(ABC):
         self.alphabet = alphabet
 
     @abstractmethod
-    def get_pangrams(self):
+    def get_letters(self):
         pass
 
     # @abstractmethod
@@ -17,6 +17,6 @@ class Game(ABC):
     #     pass
 
     @abstractmethod
-    def generate_letters(self):
+    def get_words(self):
         pass
 
