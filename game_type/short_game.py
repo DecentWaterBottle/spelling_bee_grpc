@@ -35,7 +35,7 @@ class ShortGame(Game):
             self.score += 1
         else:
             self.score += len(word)
-        if all(item in self.letters for item in list(word)):
+        if all(item in list(word) for item in self.letters):
             self.score += 7
 
     # ===================================================

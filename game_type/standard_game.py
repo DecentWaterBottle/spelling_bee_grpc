@@ -33,13 +33,10 @@ class StandardGame(Game):
     def calculate_score(self, word):
         if len(word) == MIN_LETTERS:
             self.score += 1
-            print("Lowest Score")
         else:
             self.score += len(word)
-            print("Standard Word")
         if all(item in list(word) for item in self.letters):
             self.score += 7
-            print("Pangram")
 
     # ===================================================
     # CONVERT LETTERS TO STRING
