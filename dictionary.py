@@ -43,3 +43,8 @@ class Dictionary:
                     "s" not in word and len(word) >= min_length:
                 words.append(word)
         return words
+
+    def init_game(self, length, min_length):
+        letters = self.generate_letters(length)
+        words = self.get_words(letters, min_length)
+        return letters, words
