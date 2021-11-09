@@ -1,5 +1,5 @@
 from game_type.game_factory import GameFactory
-from dictionary import Dictionary
+from eng_dictionary.dictionary import Dictionary
 import grpc
 import game_pb2
 import game_pb2_grpc

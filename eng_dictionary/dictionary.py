@@ -12,7 +12,7 @@ class Dictionary:
             raise Exception("Cannot instantiate more than one singleton")
 
     def find_pangrams(self, length):
-        file = open("word_dictionary.json")
+        file = open("eng_dictionary/word_dictionary.json")
         data = json.load(file)
         words = []
         for word in data:
@@ -35,7 +35,7 @@ class Dictionary:
         return letters
 
     def get_words(self, letters, min_length):
-        file = open("word_dictionary.json")
+        file = open("eng_dictionary/word_dictionary.json")
         data = json.load(file)
         words = []
         for word in data:
@@ -44,7 +44,7 @@ class Dictionary:
                 words.append(word)
         return words
 
-    def init_game(self, length, min_length):
+    def init_game(self, length, minimum_length):
         letters = self.generate_letters(length)
-        words = self.get_words(letters, min_length)
+        words = self.get_words(letters, minimum_length)
         return letters, words

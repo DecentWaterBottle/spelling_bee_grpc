@@ -22,7 +22,6 @@ class StandardGame(Game):
                 self.calculate_score(word)
                 self.user_words.append(word)
                 return self.score, True
-        print(self.user_words)
         return self.score, False
 
     def calculate_score(self, word):
