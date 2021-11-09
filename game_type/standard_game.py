@@ -15,6 +15,9 @@ class StandardGame(Game):
         self.letters.remove(self.main_letter)
         print(self.words)
 
+    # ===================================================
+    # CHECK THE VALIDITY OF A USERS WORD
+    # ===================================================
     def check_word(self, word):
         word = word.lower()
         if word.isalpha() and self.main_letter in word and word not in self.user_words:
@@ -24,6 +27,9 @@ class StandardGame(Game):
                 return self.score, True
         return self.score, False
 
+    # ===================================================
+    # CALCULATE SCORE OF VALIDATED WORD
+    # ===================================================
     def calculate_score(self, word):
         if len(word) == MIN_LETTERS:
             self.score += 1
@@ -35,10 +41,16 @@ class StandardGame(Game):
             self.score += 7
             print("Pangram")
 
+    # ===================================================
+    # CONVERT LETTERS TO STRING
+    # ===================================================
     def letters_to_string(self):
         temp_str = " "
         return temp_str.join(self.letters)
 
+    # ===================================================
+    # CONVERT USERS WORDS TO STRING
+    # ===================================================
     def user_words_to_string(self):
         temp_str = " "
         return temp_str.join(self.user_words)

@@ -16,6 +16,9 @@ class SpellingBeeServer(game_pb2_grpc.SpellingBeeGameServicer):
         self.game = None
         self.difficulty = ""
 
+    # ===================================================
+    # SETS THE DIFFICULTY AND INITIALIZES THE GAME
+    # ===================================================
     def SendDifficulty(self, request, context):
         self.difficulty = request.difficulty
         self.game = factory.create_game(request.difficulty, dic)
@@ -26,6 +29,9 @@ class SpellingBeeServer(game_pb2_grpc.SpellingBeeGameServicer):
         response.main_letter = self.game.main_letter
         return response
 
+    # ===================================================
+    # RECEIVE USERS WORD
+    # ===================================================
     def CheckWord(self, request, context):
         res_score, res_outcome = self.game.check_word(request.word)
         response = game_pb2.Score()
@@ -36,11 +42,17 @@ class SpellingBeeServer(game_pb2_grpc.SpellingBeeGameServicer):
         response.score = res_score
         return response
 
+    # ===================================================
+    # GETS WORDS THE USER HAS
+    # ===================================================
     def GetUserWords(self, request, context):
         response = game_pb2.Words()
         response.words = self.game.user_words_to_string()
         return response
 
+    # ===================================================
+    # GET USERS SCORE
+    # ===================================================
     def GetUserScore(self, request, context):
         response = game_pb2.Score()
         response.score = self.game.score
