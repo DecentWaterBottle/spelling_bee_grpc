@@ -1,5 +1,9 @@
 syntax = "proto3";
 
+message Empty{
+
+}
+
 message Word {
   string word = 1;
 }
@@ -10,15 +14,24 @@ message Difficulty {
 
 message Score {
   bool outcome = 1;
-  repeated string words = 2;
-  int32 score = 3;
+//  repeated string words = 2;
+  int32 score = 2;
+}
+
+message Words {
+  string words = 1;
 }
 
 message Letters {
-  repeated string letter = 1;
+  string game_letters = 1;
+  string main_letter = 2;
 }
 
-service CheckWordService {
+service SpellingBeeGame {
+  rpc SendDifficulty(Difficulty) returns(Letters);
   rpc CheckWord(Word) returns(Score);
+  rpc SendLetters(Empty) returns(Letters);
+  rpc GetUserWords(Empty) returns (Words);
+  rpc GetUserScore(Empty) returns (Score);
 }
 
