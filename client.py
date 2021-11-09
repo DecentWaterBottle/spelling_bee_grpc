@@ -1,5 +1,5 @@
 import grpc
-import game_pb2_grpc, game_pb2
+from game_grpc import game_pb2, game_pb2_grpc
 
 channel = grpc.insecure_channel("localhost:50051")
 difficulties = {1: "short", 2: "standard"}
